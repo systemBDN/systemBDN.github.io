@@ -1,0 +1,18 @@
+body{
+    background-color: black;
+    color:grey;
+    text-align: justify
+}
+
+h1{
+  text-align: center;
+  color:#4286f4;
+}
+
+#mapa { height: 400px; 
+//background-color: black}
+
+p {
+    padding:10px;
+    text-indent: 2em;
+}

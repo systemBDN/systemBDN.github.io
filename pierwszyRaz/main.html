@@ -1,0 +1,112 @@
+﻿<?php
+	session_start();
+
+	if(!isset($_SESSION['zalogowany']))
+	{
+		header('Location: /MojaStronka/index.php');
+		exit();
+	}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<title> System BDN </title>
+	<meta name="description" content="Projekt geoportalu dla systemu BDN">
+	<meta name="keywords" content="System BDN, geodezja, geoinformatyka, topografia, kartografia wojskowa, analizy terenu, ocena terenu, geografia wojskowa"> 
+	<meta name="author" content="Marek Wyszyński">
+	
+	<meta http-equiv="X-Ua-Compatible" content="IE-edge,chrome=1">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../main.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans&amp;subset=latin-ext" rel="stylesheet">
+	
+	
+
+		<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+		
+<!--
+		<div id="uzytkownik">
+		<?php 
+		
+		echo "<p> ".$_SESSION['user']." !".' [<a href="/MojaStronka/logout.php">Wyloguj sie</a>]</p> ';
+		
+		?>
+		</div>
+-->
+		
+		<!-- nagłówek całej strony powtarzany na podstronach-->
+		<header> 
+			<div id="logotyp">
+			<h1 class="logo"> <span style="color:#2a5daf">System</span>BDN</h1>
+			</div>
+			
+			<nav>
+				<ul class="menu">
+						<li><a href="../main.html">Strona glowna</a></li>
+						<li><a href="../pierwszyRaz/main.html">Pierwszyierwszy raz tutaj ?</a></li>
+						<li><a href="../materialy/main.html">Materiały</a></li>
+						<li><a href="../kontakt/main.html">Kontakt</a></li>
+				</ul>
+			</nav>
+			
+			
+		</header>
+
+		<main>
+			<article> 
+			
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+				<div id='tekst'>
+					
+					<p>
+						Poral internetowy przedstawia wybrane funkcjonalności Systemu Bazy Danych Nieoszacowanych, opisane w rozparawie doktorskiej pt. 			
+						<b><span style="color:#2a5daf">Baza Danych Nieoszacowanych – koncepcja modelu dla potrzeb oceny przejezdności terenu pododdziałów rozpoznawczych.</span></b>
+					<p>
+						W rozprawie przedstawiono szczegółowe rozwiązanie  problemu nieistniejącej, a wymaganej przez wojskowe dokumenty normatywne struktury gromadzącej dane przestrzenne, której celem jest wsparcie za pomocą aktualnych i wiarygodnych danych procesu decyzyjnego jakim jest proces dowodzenia.
+					<p>
+						Proces modelowania Bazy Danych Nieoszacowanych (BDN) został zrealizowany zgodnie z metodyką modelowania MDA (ang. Model Driven Architecture), w której przygotowany został: model CIM (ang. Computation Independent Model), model PIM (ang. Platform Indenpendent Model) oraz model PSM (ang. Platform Specific Model). Do ich opracowania wykorzystano język UML (ang. Unified Modelling Language). 
+<p>
+
+						Podstawowe funkcjonalności ujęte w portalu obejmują:
+				<ul class="lista">
+						<li><a href="/Mapa/indexMapa.html">Aplikacja umożliwiająca podgląd danych</a> w której możliwy jest podgląd danych przestrzennych przechowywanych w BDN oraz pozwalający na realizację prostych pomiarów</li>
+						<li><a href="/apkSygn/apkSygnalizowanie.html">Interaktywna mapa do sygnalizowania położenia przeciwnika </a> aplikacja umożliwia wskazywanie lokalizacji jednostek przeciwnika zgodnie z APP-6, a pozyskane informacje o przeciwniku trafiają do BDN i są udostępniane wszystkim użytkownikom z niej korzystającym na interaktywnej mapie. Ponadto możliwe jest śledzenie zmian położenia śledzonych obiektów. </li>
+						<li><a href="/PoleTestowe1/indexMapa.html">Pole testowe nr 1</a> - wyniki analiz na obszarze gminy Czaplinek</li>
+						<li><a href="/PoleTestowe2/indexMapa.html">Pole testowe nr 2</a> - wyniki analiz na obszarze gminy Serock</li>
+				</ul>
+					
+				</div>
+
+				</section>
+			</article>
+	
+		
+		</main>
+		
+		<footer>
+		
+		
+		</footer>
+		
+		
+		
+		
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+﻿<?php
+	session_start();
+
+	if(!isset($_SESSION['zalogowany']))
+	{
+		header('Location: /MojaStronka/index.php');
+		exit();
+	}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<title> System BDN </title>
+	<meta name="description" content="Projekt geoportalu dla systemu BDN">
+	<meta name="keywords" content="System BDN, geodezja, geoinformatyka, topografia, kartografia wojskowa, analizy terenu, ocena terenu, geografia wojskowa"> 
+	<meta name="author" content="Marek Wyszyński">
+	
+	<meta http-equiv="X-Ua-Compatible" content="IE-edge,chrome=1">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../main.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans&amp;subset=latin-ext" rel="stylesheet">
+	
+	
+
+		<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+		
+<!--
+		<div id="uzytkownik">
+		<?php 
+		
+		echo "<p> ".$_SESSION['user']." !".' [<a href="/MojaStronka/logout.php">Wyloguj sie</a>]</p> ';
+		
+		?>
+		</div>
+-->
+		
+		<!-- nagłówek całej strony powtarzany na podstronach-->
+		<header> 
+			<div id="logotyp">
+			<h1 class="logo"> <span style="color:#2a5daf">System</span>BDN</h1>
+			</div>
+			
+			<nav>
+				<ul class="menu">
+						<li><a href="../../main.html">Strona glowna</a></li>
+						<li><a href="../pierwszyRaz/main.html">Pierwszyierwszy raz tutaj ?</a></li>
+						<li><a href="#">Materiały</a></li>
+						<li><a href="../kontakt/main.html">Kontakt</a></li>
+				</ul>
+			</nav>
+			
+		</header>
+
+		<main>
+			<article> 
+			
+				<section> 
+				<header>
+					<h2>Definicja problemu badawczego</h2>
+				</header>
+				<div class="tekst">
+					<p>Aktualne trendy światowe wykorzystania informacji wskazują na rosnące zapotrzebowanie na dane przestrzenne w różnych dziedzinach życia, począwszy od handlu, przez transport, systemy opieki zdrowotnej, obejmując również tematykę zarządzania kryzysowego oraz obronności. Pozyskiwane dane przestrzenne stanowią źródło informacji dla procesów decyzyjnych, umożliwiając optymalne gospodarowanie posiadanymi środkami. 
+					<p> W wojsku dane przestrzenne są gromadzone przez Służbę Geograficzną (obecnie Szefostwo Rozpoznania Geoprzestrzennego SGeoW), w której szczególną rolę pełnią komórki rozpoznawcze. Specyfika ich pracy przejawia się w realizowanych zadaniach, które polegają na pozyskiwaniu najbardziej aktualnych informacji o obiektach przestrzennych , przeciwniku (i jego działaniach) czy też na śledzeniu zmian zachodzących w terenie (powstałych w wyniku oddziaływania z przeciwnikiem). Na wyposażeniu tych jednostek znajdują się nowoczesne systemy umożliwiające gromadzenie znacznych ilości danych 
+					w krótkim czasie. Powoduje to konieczność użycia w celu sprawnego zarządzania nimi 
+					- specjalistycznych systemów informatycznych jakimi są cyfrowe bazy danych. 
+					<p> Pozyskane dane są wykorzystywane do wsparcia procesu Informacyjnego Przygotowania Pola Walki, wykonywanego przez pododdziały na różnych szczeblach dowodzenia (oddział, pododdział), m.in. do prowadzenia oceny przejezdności terenu. Dane obrazowe pozwalają m.in. na aktualizację informacji o terenie i przeciwniku. Poza zobrazowaniami niezwykle ważnym źródłem danych są zgromadzone w bazach danych charakterystyki obiektów przestrzennych, które stanowią swoisty „rdzeń” do prowadzenia analiz terenu.
+					Obecnie podstawowym źródłem danych o terenie w dziedzinie obronności jest baza danych VML2, nie jest to jednak zgodne z obowiązującymi w wojsku dokumentami normatywnymi. Według ich założeń, źródłem danych przestrzennych do prowadzenia oceny terenu powinna być tzw. baza danych nieoszacowanych (BDN), która nie istnieje!  Wykorzystanie VML2 w jej miejsce, nie pozwala na prowadzenie analiz w sposób w pełni zgodny z założeniami norm obronnych - część wymaganych danych jest niedostępna lub zapisana jest w sposób uniemożliwiający ich wykorzystanie, rzutując na wynik analiz. 
+					<p> W świetle powyższego pojawia się konieczność zdefiniowania struktury bazy danych nieoszacowanych zgodnej z obowiązującymi przepisami, dostosowanej do potrzeb ich głównego odbiorcy – pododdziałów rozpoznawczych. 
+					Opracowanie bazy danych przestrzennych, wiąże się procesem modelowania wybranego  fragmentu świata rzeczywistego z uwzględnieniem specyfiki określonego odbiorcy oraz rozwiązań technicznych umożliwiających przedstawienie relacji pomiędzy obiektami modelowanej rzeczywistości. W kontekście specyfiki odbiorcy niezbędne jest uwzględnienie przepisów prawa, norm, instrukcji i standardów - regulujących zakres jego działalności, ponadto istotny jest zakres danych obejmujący jego obecne oraz przyszłe potrzeby. W aspekcie technicznym jest to zdefiniowanie struktury bazy danych i architektury systemu.
+					<p> Podkreślenia wymaga fakt, że zakres gromadzonych danych warunkują procedury prowadzenia Informacyjnego Przygotowania Pola Walki opisane w  dokumentach normatywnych, które w szerszej perspektywie wymagają uporządkowania wyróżnionych obiektów oraz danych atrybutowych w celu uniknięcia tzw. luki informacyjnej .
+					Problematyka modelowania danych przestrzennych jest przedmiotem studiów i analiz prowadzonych przez specjalistów z różnych krajów. Prowadzone prace zaowocowały powstaniem komitetu technicznego ISO TC 211 Geographic Information/Geomatics, standaryzującego zagadnienia związane z wykorzystaniem danych przestrzennych. 
+					W zakresie realizacji zadań na rzecz obronności z TC 211 oraz w porozumieniu z NATO współpracuje Defence Geospatial Information Working Group (DGIWG). Organizacja na swoich stronach podkreśla jednak, że w zakresie modelowania nie jest możliwe opracowanie uniwersalnego rozwiązania w zakresie modelu gromadzonych danych przestrzennych dla wojsk, dostosowanego do potrzeb wszystkich krajów, ze względu na fakt, że nie ma państw, których siły zbrojne były identyczne pod względem struktury i wyposażenia, w swojej działalności wspiera jednak wprowadzanie jednolitych standardów umożliwiających m.in. wymianę danych przestrzennych.
+					<p> Siły Zbrojne RP mające zapewnić bezpieczeństwo państwa są członkiem NATO 
+					i realizują określone zadania w ramach współpracy w sojuszu, jednak ich potencjalny rozwój jest w głównej mierze obwarowany specyficznymi warunkami geopolitycznymi kraju. Stąd też zakres informacji gromadzonych w bazie danych realizującej określone zadania powinna być dostosowana do potrzeb jednostek krajowych, rozszerzając zakres ogólny modelu danych będących obszarem zainteresowania wojsk sojuszu.
+					Problematyką budowy baz danych na potrzeby zastosowań cywilnych zajmowali się m.in.: (Andrzejewska i in., 2011; Eckes, 2006; Karabin, 2013; Kołodziński i Betliński, 2007; Pachelski, 2009) natomiast analizą zakresu informacyjnego danych dla potrzeb obronności 
+					w warunkach polskich zajmowali się (Pokonieczny, 2018; Scheffs, 2012). Szczegółowa analiza literatury w tym zakresie została przedstawiona w rozdziale drugim niniejszej rozprawy. Na jej podstawie można stwierdzić, że większość krajowych prac naukowych odnosi się do zagadnień modelowania baz danych przestrzennych na potrzeby tworzenia jednolitej infrastruktury informacji przestrzennej. Brak jest natomiast prac metodycznych dotyczących propozycji opracowania struktury wskazanej przez dokumenty normatywne Bazy Danych Nieoszacowanych niezbędnej dla poprawy stopnia obronności kraju.
+					<p> Mając na względzie powyższy problem za wyzwanie poznawcze niniejszej rozprawy przyjęto zdefiniowanie elementów przestrzeni, będących obszarem zainteresowaniem pododdziałów Siły Zbrojne Rzeczpospolitej Polskiej (skrót. SZRP) realizujących zadanie utrzymania obronności państwa oraz przygotowanie modelu Bazy Danych Nieoszacowanych zawierającego zależności pomiędzy nimi.
+					<div>
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+				<div id='tekst'>
+					
+					
+				</div>
+
+				</section>
+			</article>
+	
+		
+		</main>
+		
+		<footer>
+		
+		
+		</footer>
+		
+		
+		
+		
+
+</body>
+
+</html>

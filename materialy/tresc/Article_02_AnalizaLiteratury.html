@@ -1,0 +1,199 @@
+﻿<?php
+	session_start();
+
+	if(!isset($_SESSION['zalogowany']))
+	{
+		header('Location: /MojaStronka/index.php');
+		exit();
+	}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<title> System BDN </title>
+	<meta name="description" content="Projekt geoportalu dla systemu BDN">
+	<meta name="keywords" content="System BDN, geodezja, geoinformatyka, topografia, kartografia wojskowa, analizy terenu, ocena terenu, geografia wojskowa"> 
+	<meta name="author" content="Marek Wyszyński">
+	
+	<meta http-equiv="X-Ua-Compatible" content="IE-edge,chrome=1">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../main.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans&amp;subset=latin-ext" rel="stylesheet">
+	
+	
+
+		<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+		
+<!--
+		<div id="uzytkownik">
+		<?php 
+		
+		echo "<p> ".$_SESSION['user']." !".' [<a href="/MojaStronka/logout.php">Wyloguj sie</a>]</p> ';
+		
+		?>
+		</div>
+-->
+		
+		<!-- nagłówek całej strony powtarzany na podstronach-->
+		<header> 
+			<div id="logotyp">
+			<h1 class="logo"> <span style="color:#2a5daf">System</span>BDN</h1>
+			</div>
+			
+			<nav>
+				<ul class="menu">
+						<li><a href="../../main.html">Strona glowna</a></li>
+						<li><a href="../pierwszyRaz/main.html">Pierwszyierwszy raz tutaj ?</a></li>
+						<li><a href="#">Materiały</a></li>
+						<li><a href="../kontakt/main.html">Kontakt</a></li>
+				</ul>
+			</nav>
+			
+		</header>
+
+		<main>
+			<article> 
+			
+				<section> 
+				<header>
+					<h2>Przegląd aktualnego stanu wiedzy w zakresie problemtu badawczego</h2>
+				</header>
+				<div class="tekst">
+				
+					<h3>Przegląd aktualnego stanu wiedzy w zakresie modelowania baz danych przestrzennych</h3>
+				
+<p>Problem modelowania bazy danych przestrzennych, wywodzi się w swojej istocie 
+z przekazu kartograficznego , zdefiniowanego jako proces obiegu informacji między elementami rzeczywistości, a użytkownikiem mapy (MAK, 1973). Proces ten dostarcza odbiorcy informacje  o obiektach w przestrzeni za pomocą modelu, który jest rozpatrywany jako abstrakcja rzeczywistości powstała w drodze jej uogólniania. Modelowanie rzeczywistości polega tu na: identyfikacji obiektów istotnych z punktu widzenia topografii, definicję ich właściwości (atrybutów) i relacji przestrzennych (Makowski, 2005).
+<p>W przypadku danych  przestrzennych  modelowanie ma silny związek 
+z: kartografią i sposobami wizualizacji danych (problem prezentacji kartograficznej), wykorzystywanym nośnikiem danych (mapami, bazami danych przestrzennych), a także sposobem analizy danych (Gotlib, 2011; Żyszkowska, 2000). Obecnie, jako znaczący wskazywany jest również proces komunikacji mający znaczenie w czytelności interfejsu programu lub portalu www (Sui i Goodchild, 2001), powyższe odróżnia modelowanie danych przestrzennych od np. modelowania procesów biznesowych i modelowania naukowego  (Baranowski, Gotlib, i Olszewski, 2017). 
+<p>Efektem procesu modelowania może być mapa, baza danych przestrzennych reprezentująca informacje o jednolitym poziomie szczegółowości lub kilku poziomach szczegółowości (tzw. wielorozdzielcza baza danych) (Andrzejewska i in., 2011), ale także interfejs serwisu internetowego prezentujący dane przestrzenne (Kowalski, 2012). 
+Odbiorca przekazu kartograficznego może analizować treść tego przekazu za pomocą kartograficznej metody badań  w celu poszerzenia informacji zawartej na mapie lub opracowania informacji nowej jakościowo (Pasławski i Horodyski, 2010; Saliszczew, 1955), pozwalając następnie na wnioskowanie w zakresie wynikającym z problemu modelowanych zjawisk przestrzennych. 
+<p>Głównym czynnikiem mającym wpływ na sposób ujęcia procesu modelowania danych przestrzennych i jego produktów, zauważalnym w literaturze, jest rozwój technologii, a wraz z nim problem aktualnie wykorzystywanego nośnika danych.
+Począwszy od opracowań analogowych i ich ręcznej redakcji, modelowanie kartograficzne (utożsamiane z modelowaniem danych przestrzennych) rozumiane jest jako iteracyjny cykl mapa-model i opierało się ono na założeniu że mapa jest modelem rzeczywistości (Board, 1967; Saliszczew, 1955) w którym obraz rzeczywistości powstaje w wyniku selekcji oraz generalizacji informacji. W kolejnych etapach projektowania następuje określenie sposobu ujęcia informacji, o czym decydują potrzeby użytkownika i to one definiują m.in. sposób filtrowania danych (Board, 1967). Opracowywany model rzeczywistości nie jest zapisywany w określonej zestandaryzowanej,  znormalizowanej postaci. Funkcjonuje on zazwyczaj w umyśle i notatkach redaktora (Gotlib, 2011).
+<p>Modelowanie danych przestrzennych na potrzeby opracowania map cyfrowych oraz cyfrowych baz danych w literaturze jest opisane jako wieloetapowy proces składający się z opracowania kolejnych abstrakcji rzeczywistości. Charakterystyczny jest tu dualizm podejścia bazodanowego i kartograficznego. Podejście kartograficzne skupia się na semiotycznych właściwościach przekazu kartograficznego i do powstania pojęć cyfrowego modelu krajobrazu oraz cyfrowego modelu kartograficznego. Podejście bazodanowe obejmuje modelowanie rzeczywistości z perspektywy projektowania oprogramowania 
+i uwzględnia związane z tym formalizmy (normy, notacje, standardy) oraz metodyki projektowania systemów informatycznych w projektowaniu baz danych przestrzennych (Głażewski, 2006; Gotlib, 2011; Graessle, Baumann, Baumann, i Pętlicki, 2006; Kraak i Ormeling, 2013), przyczyniając się do rozwoju narzędzi CASE (ang. Computer Aided Software Development).
+<p>Jako zasadnicze w modelowaniu, należy wyróżnić podejście wskazane przez (Hake, Grünreich, i Meng, 2002), który opisuje że modelowanie obejmuje opracowanie: modelu pierwotnego, modelu wtórnego oraz modelu trzeciego stopnia. Kolejne modele reprezentują poziomy abstrakcji rzeczywistości dostosowane do odbiorców każdego z modeli. Model pierwotny jest wynikiem bezpośredniej obserwacji rzeczywistości opracowywanym przez specjalistę np. topografa, geodetę. Model wtórny umożliwia prezentację kartograficzną danych opracowaną przez kartografa, a model trzeciego stopnia przedstawia wyobrażenie znajdujących się na mapie obiektów sporządzany dla użytkownika mapy. 
+<p>Głażewski zauważa, że modelowanie bazy danych przestrzennych jest  procesem projektowania cyfrowej bazy danych i wyróżnia projektowanie: pojęciowe, logiczne, fizyczne przez analogię do projektowania systemu informatycznego. Wynikiem projektowanie pojęciowego jest uporządkowanie pojęć i relacji leżących u podstaw bazy danych, do czego wykorzystuje się notacje UML  (lub model ER). <p>Projektowanie logiczne, skutkuje ułożeniem pojęć w kontekście uwarunkowań konkretnego systemu zarządzania bazą danych. Natomiast  projektowanie fizyczne, pozwala na uzyskanie fizycznego modelu bazy danych, który przechowuje konkretne zbiory danych. Autor podkreśla jednocześnie, że elementem modelowania kartograficznego w cyfrowych bazach danych jest projektowanie polegające na strukturyzowaniu rzeczywistości z wykorzystaniem narzędzi informatycznych (Głażewski, 2006). 
+<p>Natomiast Żyszkowska ogranicza modelowanie kartograficzne do wizualizacji kartograficznej, która obejmuje analizę zjawisk przestrzennych i ich przedstawienie (wyróżnione przez nią etapy modelowania kartograficznego to  opracowanie pojęciowego modelu przestrzeni geograficznej po którym następuje opracowanie katalogu symboli tzw. model syntaktyczny i transformacja modelu syntaktycznego na obraz kartograficzny) (Żyszkowska, 2000). 
+Zbliżone spojrzenie na proces modelowania danych geograficznych można odnaleźć 
+u (Peuquet, 1984), dla którego proces modelowania wiąże się z przechodzeniem na kolejne poziomy abstrakcji: od rzeczywistości przez model danych, strukturę danych, aż do struktury pliku komputerowego.
+Modelowanie danych przestrzennych w kontekście popularnych obecnie rozwiązań technologicznych tj. systemów GIS, geoportali, serwisów www, cechuje rosnąca rola mediów na przekaz informacji (np. serwisów społecznościowych, internetu) (Gotlib, 2011).
+<p>Bernhardsen opisuje że modelowanie rzeczywistości z punktu widzenia systemu GIS to przejście od rzeczywistości przez jej model, model danych, bazę danych aż do mapy (lub jej wizualizacji) (Bernhardsen, 2002).
+W literaturze w zakresie modelowania danych przestrzennych uwidacznia się podejście traktujące proces modelowania danych przestrzennych jako jeden 
+z etapów opracowywania systemu informatycznego (np. programu, lub portalu www), co jest zagadnieniem odnoszącym się do doświadczeń dziedziny nauki – inżynierii oprogramowania  (Sacha, 2014).  
+Modelowanie systemu informatycznego zakłada odwzorowanie obiektów 
+i procesów ze świata rzeczywistego w bazie danych, która powstaje w procesie projektowym zorientowanym na określone usługi i zadania (ang. Service Oriented Architecture, skrót. SOA) (Erl i Grażyński, 2014). Ogólny model procesu projektowania oprogramowania przedstawia Rys. 2.1.1.
+
+ ############################################################
+<p>Rys. 2.1.1. Ogólny model procesu projektowania oprogramowania
+Źródło: Opracowanie własne na podstawie (Sacha, 2014).
+
+Proces opracowania takiego systemu w zależności od jego złożoności  jest realizowany przy pomocy określonej metodyki (MDA, RUP, Agile) i z wykorzystaniem tzw. dobrych praktyk projektowania i sugerowanych przez organizacje standardów np. OGC, W3C.
+ Pozycje literaturowe traktujące bazy danych przestrzennych przez pryzmat systemów informatycznych skupiają się na problemie skuteczność wdrożenia całego systemu z wykorzystaniem wybranej metodyki (Sacha 2014; Allen, Garbacz, Walczak 2006; Erl, Grażyński 2014; Evans, Szpoton 2015; Martin, Meryk 2017).
+<p>Warto wyróżnić również artykuły, które poruszają problem integracji danych przestrzennych w ramach procesu tworzenia Infrastruktury Informacji Przestrzennej w Polsce. W pracach tych modelowanie danych przestrzennych jest realizowane zgodnie z normami serii 19100 Geographic Information. Proces modelowania w ujęciu norm obejmuje przejście od rzeczywistości do schematu pojęciowego opartego na pojęciowym formalizmie i na języku schematów pojęciowych (widoczne na Rys. 2.1.2) („ISO 19011”, 2011; „ISO 19107”, 2003; „ISO 19109”, 2015; „ISO 19110”, 2016).
+<p>
+ ##########################################################
+<p>Rys. 2.1.2. Modelowanie rzeczywistości wg. norm ISO 19103.
+Źródło: ISO 19103.
+
+<p>Schemat aplikacyjny UML  jest opracowywany zgodnie z normą ISO 19109 
+– Geographic Inofmration – Rules for application schema, oraz zgodnie ze specyfikacją techniczną ISO/TS 19103 Geographic Information – Conceptual Schema Language. Katalog obiektów powstaje zgodnie z ISO 19110 – Geographic Inofrmation – Methodology for feature cataloguing.  Schemat aplikacyjny GML powstaje według reguł normy ISO 19134 
+– Geographic Information – Geography Markup Language (ISO 19011:2011). Typy danych są zdefiniowane w ISO 19107 – Spatial Schema. 
+Pachelski podkreśla, że korzystanie z ww. norm ISO oraz standardów OGC zapewnia najbardziej uniwersalną metodykę umożliwiającą modelowanie informacji geograficznej (Pachelski, 2005).
+<p>Podsumowując należy podkreślić, że w literaturze odnoszącej się do problematyki modelowania danych przestrzennych widoczny jest dualizm podejścia do procesu modelowania danych wynikający z zastosowanej technologii. Pomimo wzrostu jej znaczenia, i udziału w modelowaniu danych przestrzennych w dalszym ciągu polega ono na projektowaniu przekazu kartograficznego (Baranowski i in., 2017), dla którego niezbędnym w dalszym ciągu elementem jest modelowanie kartograficzne, a więc istota modelowania danych przestrzennych pozostaje niezmienna – dostarczyć informacje o obiektach i relacjach przestrzennych w przemyślany sposób jak najbardziej efektywny 
+w sensie poznawczym. 
+					
+					
+<h3>Przegląd aktualnego stanu wiedzy w zakresie wojskowej oceny terenu	</h3>
+					
+<p>Rozwój nowych technologii w zakresie gromadzenia, pozyskiwania i przetwarzania danych przestrzennych, umożliwił szybką analizę dużych zbiorów danych co wpłynęło na wiele dziedzin życia i dyscyplin nauki. Zaowocowało to również zainteresowaniem metodami geoinformatycznymi specjalistów wojskowych zajmujących się problemem oceny terenu. 
+<p>Problem oceny wpływu terenu  obejmuje różne zagadnienia, począwszy od wyróżnienia głównych elementów składowych terenu, przez metody analizy terenu , skończywszy na określeniu roli oceny terenu w procesie decyzyjnym (Dzikiewicz, 1971; FM 34-130, 1994; „MC 296/1”, 2006; „NATO -ATP 35 (B)”, 1995; „NO-06-A015”, 2012; Lach, Łaszczuk, i Nowak, 2000; Stasiewicz i Łaski, 1983).
+Wskazanie głównych elementów składowych terenu, a więc elementów mających największe znaczenie w prowadzeniu działań bojowych, było przedmiotem badań m.in. (Dzikiewicz, 1971; Stasiewicz i Łaski, 1983), którzy zaliczyli do nich: rzeźbę, hydrografię, drożnie, roślinność, grunty, zabudowę. 
+Obowiązująca Norma Obronna NO-06-A015:2012 poruszająca tą tematykę zakłada, że informacje powinny być gromadzone nt.: rzeźby terenu, roślinności, hydrografii powierzchniowej, sieci transportowej, gruntów, obszarów  zurbanizowanych, obiektów specjalnych, obiektach podziemnych, pogody i klimatu - na warstwach tematycznych, które odpowiadają zasadniczym analizowanym elementom terenu. Pozyskiwane na warstwach dane powinny być zapisywane w postaci cyfrowej bazy danych - tzw. Bazy Danych Nieoszacowanych (skrót BDN) („NO-06-A015”, 2012).
+Zakres informacji, który powinny znajdować się w BDN, został również opisane 
+w innych dokumentach normatywnych m.in. NO-06-A014, NO-02-A029, NO-02-A014-1. 
+W żadnej z tych pozycji nie ma jednak zdefiniowanego schematu BDN.
+Szersze spojrzenie na zakres informacji niezbędny do podjęcia decyzji 
+w procesie dowodzenia opisuje doktryna taktyczna NATO ATP-35 (B), gdzie do czynników mających największy wpływ na realizację zadania bojowego zaliczono m.in. środowisko, które uwzględnia informacje o: terenie, pogodzie, ludności, kulturze, religii.
+<p>Podobne podejście prezentuje Bujak, który wprowadza pojęcie środowiska pola walki, dotyczące problemu prowadzenia działań bojowych w danym terenie i  zabezpieczania niezbędnego zakresu informacyjnego o nim (Bujak i Śliwa, 2002). Zakres ten wg. autora wykracza poza zdefiniowane w innych pozycjach literaturowych główne elementy składowe terenu, a uwzględnia wymiar ludzki oraz wymiar fizyczny (na który składa się teren oraz geografia, pogoda i infrastruktura). Ponadto autor zauważa konieczność zdobywania informacji z różnych źródeł, poza tymi wymienionymi w NO-06-A015 , opisując jako potencjalne źródła: doniesienia telewizyjne oraz prasowe na temat terenu i prowadzonych 
+w nim działań (Bujak i Śliwa, 1998).
+<p>Powyższe poszerzenie zakresu gromadzonych informacji rozpatrywanych jako istotne w procesie planowania określonych działań, wynika ze zmiany charakteru samych działań, które jeszcze w XVIII i XIX wieku cechowało osiąganie rozstrzygnięć w sferze taktycznej, 
+w bitwach i starciach, na obszarze nieprzekraczającym kilkuset km kw. Obecne konflikty często mają charakter międzynarodowy i obejmują niejednokrotnie obszar państw lub jego części, z tego względu znaczenia nabrały informacje o zasobach danego kraju, jego infrastrukturze, powiązaniach gospodarczych, kulturze, czy też religii - zaangażowanych 
+w konflikt stron.
+<p>Dane o terenie na potrzeby wojska gromadzone są przez służbę geograficzną. Warto przy tym zwrócić uwagę, że produkty geograficzne są wykonywane przez wojsko i cywilne instytucje krajowe przy zachowaniu podziałów resortowych co powoduje że niejednokrotnie dublowane są wydatki na ich realizację.
+Opracowywane przez SGeoW produkty geograficzne funkcjonują w postaci cyfrowych repozytoriów danych przestrzennych oraz opracowań analogowych („Informator o cyfrowych produktach  geograficznych”, 2011). Charakteryzują się one zróżnicowaną dokładnością, co wynika z potrzeb szczebla dowodzenia, na którym planowe są działania (Stępień, Maj, i Metelica 2007). 
+Gromadzone dane przestrzenne są dystrybuowane w postaci map analogowych oraz 
+w postaci cyfrowej za pomocą Systemu Informacyjnego Serwera Informacji i Usług Geograficznych – SI GEOSERWER.
+<p>Pozyskiwane dane są przetwarzane za pomocą zdefiniowanych metod analizy. Zalecaną w SZRP (zgodnie z NO-06-A015) metodą analizy terenu jest analiza terenu OCOKA opisana m.in. w FM-34-130. OCOKA przewiduje analizę pięciu elementów podlegających ocenie przeszkody, maskowanie i ukrycie, możliwości prowadzenia obserwacji, teren kluczowy, drogi podejścia i korytarze manewru, które w naturalny sposób determinują zakres tematyczny bazy danych konstruowanej na potrzeby prowadzenia takiej analizy. Nie ma to jednak odniesienia do zakresu informacji opisanych w NO-06-A015, powoduje to wyraźną niespójność w całym procesie (FM 34-130, 1994).
+<p>Oprócz zalecanej metody analizy terenu OCOKA funkcjonują również analizy 
+METT-T, FLOCARC, COPPED. Każda z analiz kładzie nacisk na inny aspekt terenu oraz wymaga innego zbioru danych. Elementy podlegające ocenie dla każdej z wymienionych metod analizy zawiera Tab. 2.2.1. na str. 23 (NO-06-A015:2012). 
+Analizy terenu są sporządzane ręcznie na analogowej mapie w postaci oleat oraz 
+z wykorzystaniem rozwijających się narzędzi do przetwarzania danych cyfrowych 
+tj. systemów GIS umożliwiających automatyzację pewnych czynności (Pokonieczny,  Wyszyński 2016). W procesie analiz wykorzystuje się także sztuczne sieci neuronowe (Pokonieczny, 2018). Wyniki prowadzonych analiz umożliwiają podejmowania decyzji w myśl założeń NO-06-A015 oraz NATO ATP-35(B). Warto podkreślić, że nie funkcjonują oficjalne wytyczne opisujące technologiczny proces prowadzenia analiz wojskowych z wykorzystaniem np. systemów GIS, a prowadzone analizy są wykonywane w oparciu o doświadczenia analityków zatrudnionych w służbie. W praktyce oznacza to dowolność w sposobie ich realizacji, co w przypadku niestandardowych analiz oczywiście jest zasadne, jednak w sytuacji opracowań ujętych w dokumentach normatywnych nie powinno mieć miejsca. 
+
+<p>Wojskowe repozytoria danych, które są wykorzystywane do prowadzenia analiz to VML2, VML2+ w przypadku danych cyfrowych oraz mapy serii M755 w skali 1:50 000, serii 1501 w skali 1:250 000 w przypadku danych analogowych. Wykorzystanie VML do prowadzenia analiz cyfrowych, ze względu na strukturę tej bazy i zakres informacyjny, jest niezgodne z założeniami Normy NO-06-A015. Ponadto z badań własnych autora i dostępnych w literaturze źródeł, wynika, że standard DIGEST i format VPF, na którym oparto VML2 ma pewne wady: jest rozbudowany i skomplikowany, co powoduje, że baza danych nie jest spójna pojęciowo (m.in.: wyróżnia budynek jako obiekt powierzchniowy oraz punktowy oraz niezależnie na osobnych warstwach obiektu barak\szopa, budynek węzeł łączności itp.). Co więcej, VML2 ma braki w ujęciu topologicznych właściwości obiektów bazy danych wynikające z przyjęcia wektorowego modelu spaghetti jako modelu danych w odniesieniu do ponad 200 klas obiektów co opisano w (Głażewski, 2009; Pietruszka i Sobczyński, 2013). 
+<p>Szersze spojrzenie na proces oceny terenu odnajdujemy w pozycjach literaturowych (Bujak i Śliwa, 1998; „NATO - ATP 3.2”, 2003; „NATO -ATP 35 (B)”, 1995), które opisują jego rolę, jako nieodzownego etapu podejmowania decyzji, w którym zakres niezbędnych danych jest uzależniony od szczebla, na którym jest ona podejmowana oraz planowanego manewru (np. obrona, natarcie). Rodzaj szczebla dowodzenia decyduje o dokładności z jaką powinny być gromadzone dane opisano to m.in. w (Bernhardsen, 2002; Longley, 2005; Sobczyński, Tomaszewski, i Sielecki, 2000; Stępień i in., 2007), wyróżniając szczebel: taktyczny, operacyjny, strategiczny oraz dokładności danych geograficznych na każdym 
+z nich. (odpowiednio odpowiadające dokładnością mapom w skalach: większej  niż 1:100k, w przedziale skal 1:500k-1:100k oraz o skali mniejszej niż 1:250k). Warto nadmienić, że  w klasyfikacji przedstawionej w (Stasiewicz i Łaski, 1983), podział krajowy jest odmienny, nie wyróżniono w nim poziomu strategicznego oraz przedstawiono inne skale na poszczególnych szczeblach operacyjnym i taktycznym („NATO -ATP 35 (B)”, 1995).
+<p>Na szczeblu operacyjnym wg. NO-06-A015, zabezpieczenie informacji geograficznej jest realizowane w ramach procesu Informacyjnego Przygotowania Pola Walki (IPPW) (ang. Intelligence Preparation of the Battlefield). Proces ten składa się z czterech faz (określenie obszaru zainteresowania, analizę terenu, ocenę przeciwnika i określenie kierunków działania przeciwnika), które wyraźnie dzielą IPPW na dwie części. Pierwsza najistotniejsza z punktu widzenia niniejszej rozprawy polega na gromadzeniu i przetwarzaniu posiadanych danych o przestrzeni i przeciwniku. Druga odnosi się do praktycznego wykorzystania posiadanych danych do oceny terenu w wyróżnionym obszarze działania oraz określenia zagrożeń w aspekcie możliwości rozpatrywanego przeciwnika. W pierwszej fazie definiowana jest wielkość przestrzeni walki. W kolejnej fazie prowadzona jest analiza terenu, w ramach której prognozuje się wpływ warunków pogodowych, sporządza się oleatę analizy terenu (np. zawierającą potencjalne drogi podejścia i korytarze manewru), a także określa się widoczność we wskazanym obszarze. 
+<p>W trzeciej fazie IPPW – dokonywana jest ocena przeciwnika, określa się tu doktrynalny model działań jego sił, oraz prognozuje się zagrożenia (prawdopodobne warianty działań przeciwnika w konkretnej sytuacji. Ponadto przygotowuje się nakładkę zdarzeń oraz nakładkę wsparcia decyzji. Schemat IPPW widoczny jest na powyższym rysunku (Rys. 2.2.1, str. 25).
+Oceny terenu dokonuje się z punktu widzenia przeciwnika i wojsk własnych. Jej efektem jest wskazanie: przestrzeni dostępnej, trudno dostępnej i niedostępnej, obszarów sprzyjających działaniu przeciwnika i wojsk własnych (rejony kluczowe), dróg podejścia i korytarzy manewru, ustalenie dostępności elektromagnetycznej z wybranych punktów terenowych. 
+<p>
+ ############################################################
+<p>Rys. 2.2.1. Schemat procesu IPPW 
+Źródło: („NO-06-A015”, 2012).
+
+<p>Szczebel taktyczny definiuje doktryna DD 3.2.5 Planowanie działań na szczeblu taktycznym w wojskach lądowych. W dokumencie tym określono jak wygląda proces dowodzenia z podziałem na fazy (Rys. 2.2.2). Każda z faz jest realizowana cyklicznie, a wykorzystanie wyników analizy danych przestrzennych ma miejsce we wszystkich fazach tego procesu.
+<p>
+############################################################
+ 
+<p>Rys. 2.2.2. Istosta cyklu dowodzenia w podziale na fazy. 
+Źródło: (DD 3.2.5).
+
+<p>To dla tego szczebla dowodzenia gromadzone są najbardziej szczegółowe dane przestrzenne, a w ich oparciu, na tym szczeblu dowodzenia, sporządzana jest tzw. ocena otoczenia, która obejmuje (warunki terenowe, atmosferyczne, ludność, kultura i religia w obszarze przyszłych działań) i określa, jaki wpływ będą miały warunki terenowe, atmosferyczne, widoczność na działanie zarówno pododdziału (wojsk własnych, jak i przeciwnika). Teren wg. doktryny analizowany jest w pięciu aspektach: warunków obserwacji i prowadzenia ognia, pokrycia terenu i warunków maskowania, przeszkód, terenu kluczowego oraz dróg podejścia („DD-3.2.5”, 2007; Grabowski i Dąbrowski, 2008). Widać więc zbieżność z aspektami oceny terenu w metodzie oceny terenu OCOKA.
+<p>Istotą oceny terenu we wspomnianych dokumentach (norma, doktryna) jest dostarczenie wiarygodnych informacji o terenie na potrzeby podjęcia decyzji odnośnie sposobu realizacji wybranego zadania. Ocena jest realizowana na podstawie zgromadzonych danych, które przetworzone przez przeszkolonego analityka pozwalają na wychwycenie pewnych prawidłowości charakteryzujących działania wojenne.  Umożliwia to opracowanie wariantów działania wojsk własnych i przeciwnika, ich krytyczną ocenę oraz podjęcie decyzji o sposobie realizacji określonego zadania. 
+<p>Podsumowując należy stwierdzić, że w literaturze jest obszernie opisany sposób prowadzenia oceny terenu oraz jej rolę w procesie decyzyjnym, wskazany jest  pobieżnie zakres informacji, które powinny być gromadzone w BDN, nie ma natomiast informacji nt. tego jak wygląda schemat BDN.
+Zakres przedstawiony ww. dokumentach jest rozbieżny i przedstawia odmienny zbiór danych niezbędnych do wykorzystania co wymaga oceny i dostosowania BDN, aby wyeliminować możliwość wystąpienia redundancji.
+ Funkcjonujące repozytoria danych wykorzystywane do prowadzenia analiz terenu, nie są do końca zgodne z założeniami obowiązujących dokumentów normatywnych, a do analiz nie wykorzystuje się opracowań cywilnych, jak to ma miejsce w innych krajach świata, 
+w których wszystkie dane o terenie traktuje się jako poufny, centralny, zasób danych państwowych. Zasadne byłoby więc opracowanie struktury zasobu centralnego, który swoim zakresem obejmowałby zasób cywilny i uwzględniał potrzeby obronności. Zasilanie takiego zasobu powinno odbywać się w oparciu o prace służby cywilnej w celu uniknięcia dublowania kosztów.
+
+
+					<div>
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+				<div id='tekst'>
+					
+					
+				</div>
+
+				</section>
+			</article>
+	
+		
+		</main>
+		
+		<footer>
+		
+		
+		</footer>
+		
+		
+		
+		
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+﻿<?php
+	session_start();
+
+	if(!isset($_SESSION['zalogowany']))
+	{
+		header('Location: /MojaStronka/index.php');
+		exit();
+	}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<title> System BDN </title>
+	<meta name="description" content="Projekt geoportalu dla systemu BDN">
+	<meta name="keywords" content="System BDN, geodezja, geoinformatyka, topografia, kartografia wojskowa, analizy terenu, ocena terenu, geografia wojskowa"> 
+	<meta name="author" content="Marek Wyszyński">
+	
+	<meta http-equiv="X-Ua-Compatible" content="IE-edge,chrome=1">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../main.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans&amp;subset=latin-ext" rel="stylesheet">
+	
+	
+
+		<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+		
+<!--
+		<div id="uzytkownik">
+		<?php 
+		
+		echo "<p> ".$_SESSION['user']." !".' [<a href="/MojaStronka/logout.php">Wyloguj sie</a>]</p> ';
+		
+		?>
+		</div>
+-->
+		
+		<!-- nagłówek całej strony powtarzany na podstronach-->
+		<header> 
+			<div id="logotyp">
+			<h1 class="logo"> <span style="color:#2a5daf">System</span>BDN</h1>
+			</div>
+			
+			<nav>
+				<ul class="menu">
+						<li><a href="../../main.html">Strona glowna</a></li>
+						<li><a href="../pierwszyRaz/main.html">Pierwszyierwszy raz tutaj ?</a></li>
+						<li><a href="#">Materiały</a></li>
+						<li><a href="../kontakt/main.html">Kontakt</a></li>
+				</ul>
+			</nav>
+			
+		</header>
+
+		<main>
+			<article> 
+			
+				<section> 
+				<header>
+					<h2>Definicja problemu badawczego</h2>
+				</header>
+				<div class="tekst">
+<p>Dzisiejsza baza danych (ang. Database) to zbiór powiązanych ze sobą danych zorganizowanych w odpowiednią strukturę, która pozwala na szybkie wyszukiwanie żądanych informacji. W bazie danych zapisywane są fakty i zdarzenia zachodzące w pewnym wycinku rzeczywistości, co pozwala na ich odtworzenie i analizę w dowolnej chwili. W przypadku baz danych przestrzennych, mamy do czynienia z połączeniem informacji o zdarzeniach oraz o ich położeniu w przestrzeni (Allen i in., 2006). Taką definicję bazy danych możemy znaleźć m.in. u Czapli oraz Allen’a (Allen i in., 2006; Czapla, 2015).
+Dane w bazach danych są zapisane z wykorzystaniem tzw. modelu danych, który obejmuje integralny zbiór zasad opisujących dane i powiązania pomiędzy nimi oraz określa ograniczenia nakładane zarówno na dane jak i na operacje na nich wykonywane. 
+<p>Model danych spełnia rolę strukturalną, integralną oraz manipulacyjną dla zbioru przechowywanych danych. Wybór struktury decyduje o sposobie przetwarzania i dostępu do danych. Podstawowymi strukturami danych są: tablica, stos, kopiec, drzewo, lista, graf, kolejka. Oprócz struktury, model danych definiuje dostępne operacje np. zapytania lub modyfikacje, a także w jaki sposób są one przeprowadzone. Ostatnim elementem określonym w ramach modelu danych są ograniczenia zapewniające odpowiedni poziom integracji danych.
+<p>W obecnie funkcjonujących bazach danych najczęściej wykorzystywany jest relacyjny model danych. Oprócz modelu relacyjnego wyróżniamy: model obiektowy, model obiektowo-relacyjny, semistrukturalny model danych, oraz cieszący się rosnącą popularnością model nierelacyjny (NoSQL), wszystkie wymienione powyżej modele umożliwiają gromadzenie danych przestrzennych. Wspomnieć należy o wczesnych modelach baz danych: sieciowym 
+i hierarchicznym. Ich charakterystykę można odnaleźć m.in. w pozycjach literaturowych (Connolly, Begg, Kanarek, Jurdziński, i Piotrów, 2004; Hernandez, Getz, Jakóbik, Meryk, i Żarnowska, 2014; Kresse i Danko, 2012; Ullman, Widom, i Meryk, 2011).
+<p>Do zarządzania danymi w zdefiniowanym modelu danych wykorzystuje się aplikacje zapewniające różne funkcjonalności. Zbiór zintegrowanych aplikacji tworzy tzw. System Zarządzania Bazą Danych (SZBD) (ang. Database Management System) (Rogulski, 2012). SZBD jest z technologicznego punktu widzenia modułem programowym, którego zadaniem oprócz zarządzania całą bazą danych, jest realizowanie żądań aplikacji użytkowników. Aplikacje te mogą być implementowane z wykorzystaniem języków programowania trzeciej generacji 3GL (np. C, C++, Visual Basic, Visual C++), czwartej generacji 4GL  (np. SAS 4 GL, Oracle Forms) lub języków programowania aplikacji webowych. 
+<p>Na rynku istnieje wiele komercyjnych i darmowych SZBD. Do najpopularniejszych SZBD można zaliczyć: Oracle 9i oraz Oracle10g (firma Oracle), DB2 i Informix(R) Dynamic Server (firma IBM), SQL Server w wersjach 2000 i 2005 (firmy Microsoft),  Adaptive Server Enterprise i Adaptive Server Anywhere (firmy Sybase). Najpopularniejsze rozwiązania niekomercyjne to MySQL, PostgreSQL i FireBird, MongoDB. Funkcjonalności wymienionych SZBD są zróżnicowane, determinuje to potencjalne zastosowanie każdego z systemów do realizacji określonych zadań (Tuzinkiewicz i Wiater, 2013).
+Większość z pośród wymienionych SZBD oferuje możliwość przetwarzania danych przestrzennych po zainstalowaniu specjalnych rozszerzeń np. PostGIS dla PostgreSQL.
+
+					<div>
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+				<div id='tekst'>
+					
+					
+				</div>
+
+				</section>
+			</article>
+	
+		
+		</main>
+		
+		<footer>
+		
+		
+		</footer>
+		
+		
+		
+		
+
+</body>
+
+</html>

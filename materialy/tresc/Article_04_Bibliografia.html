@@ -1,0 +1,191 @@
+﻿<?php
+	session_start();
+
+	if(!isset($_SESSION['zalogowany']))
+	{
+		header('Location: /MojaStronka/index.php');
+		exit();
+	}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<title> System BDN </title>
+	<meta name="description" content="Projekt geoportalu dla systemu BDN">
+	<meta name="keywords" content="System BDN, geodezja, geoinformatyka, topografia, kartografia wojskowa, analizy terenu, ocena terenu, geografia wojskowa"> 
+	<meta name="author" content="Marek Wyszyński">
+	
+	<meta http-equiv="X-Ua-Compatible" content="IE-edge,chrome=1">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../main.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans&amp;subset=latin-ext" rel="stylesheet">
+	
+	
+
+		<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+		
+<!--
+		<div id="uzytkownik">
+		<?php 
+		
+		echo "<p> ".$_SESSION['user']." !".' [<a href="/MojaStronka/logout.php">Wyloguj sie</a>]</p> ';
+		
+		?>
+		</div>
+-->
+		
+		<!-- nagłówek całej strony powtarzany na podstronach-->
+		<header> 
+			<div id="logotyp">
+			<h1 class="logo"> <span style="color:#2a5daf">System</span>BDN</h1>
+			</div>
+			
+			<nav>
+				<ul class="menu">
+						<li><a href="../../main.html">Strona glowna</a></li>
+						<li><a href="../pierwszyRaz/main.html">Pierwszyierwszy raz tutaj ?</a></li>
+						<li><a href="#">Materiały</a></li>
+						<li><a href="../kontakt/main.html">Kontakt</a></li>
+				</ul>
+			</nav>
+			
+		</header>
+
+		<main>
+			<article> 
+			
+				<section> 
+				<header>
+					<h2>Definicja problemu badawczego</h2>
+				</header>
+				<div class="tekst">
+					<p>19 SOG. (2005). Kodowanie obiektów mapy wektorowej poziomu 2 (VMap L2). Zarząd Geografii Wojskowej Sztabu Generalnego WP.
+<p>Allen, S., Garbacz, B., i Walczak, T. (2006). Modelowanie danych. Gliwice: Helion.
+<p>Andrzejewska, M., Bielawski, B., Głażewski, A., Gotlib, D., Kowalski, P., Olszewski, R., i Ostrowski, W. (2011). Opis procesu modelowania kartograficznego w urzędowych bazach danych referencyjnych w Polsce. Roczniki Geomatyki, T. 9, z. 1, 19–32.
+<p>Banachowski, L., Chądzyńska, A., i Matejewski, K. (2009). Relacyjne bazy danych: wykłady i ćwiczenia. Warszawa: Wydawnictwo Polsko-Japońskiej Wyższej Szkoły Technik Komputerowych.
+<p>Baranowski, M., Gotlib, D., i Olszewski, R. (2017). Cechy modelowania kartograficznego w kontekście współczesnej definicji mapy. Polish Cartographical Review, 2(1), 5–15.
+<p>Beck, K., Nowakowski, P., i Andres, C. (2006). Wydajne programowanie = Extreme programming. Warszawa: Wydawnictwo MIKOM.
+<p>Bernhardsen, T. (2002). Geographic information systems: an introduction (3rd ed). New York, NY: Wiley.
+<p>Board. (1967). Maps as models. Models In geography. London, Methuen, 671–725.
+Bogdanienko, J. (2008). W pogoni za nowoczesnością: wybrane aspekty tworzenia i wprowadzania zmian. Toruń: Towarzystwo Naukowe Organizacji i Kierownictwa - Stowarzyszenie Wyższej Użyteczności „Dom Organizatora”.
+<p>Bujak, A., i Śliwa, Z. (1998). Wpływ terenu na działania bojowe według poglądów NATO (Wrocław). WSO-TK.
+<p>Bujak, A., i Śliwa, Z. (2002). Organizacja oceny terenu i jego wykorzystanie w działaniach taktycznych. Wrocław: WSOWLąd.
+<p>Chojka, A. (2009). Adaptacja technologii MDA do budowy systemu geoinformacyjnego na poziomie gminy. Archiwum Fotogrametrii, Kartografii i Teledetekcji, Vol. 19, 47–57.
+<p>Connolly, T., Begg, C., Kanarek, P., Jurdziński, T., i Piotrów, M. (2004). Systemy baz danych: praktyczne metody projektowania, implementacji i zarządzania. T. 1 T. 1. Warszawa: Wydawnictwo RM.
+<p>Czapla, K. (2015). Bazy danych: podstawy projektowania i języka SQL. Gliwice: Helion.
+<p>D/2, Doktryna Rozpoznanie wojskowe. (2013). Sztab Generalny Wojska Polskiego.
+<p>DD-3.2.5, Planowanie działań na szczeblu taktycznym w wojskach lądowych. (2007). Zarząd Operacji Lądowych.
+<p>Dzikiewicz, B. (1971). Topografia. Wydawn. Ministerstwa Obrony Narodowej.
+<p>Eckes, K. (2006). Modelowanie rzeczywistości geograficznej w systemach informacji przestrzennej. Roczniki Geomatyki, T. 4, z. 2, 43–73.
+<p>Elmasri, R., i Navathe, S. B. (2015). Fundamentals of Database Systems. Pearson Education.
+<p>Erl, T., i Grażyński, A. (2014). SOA: koncepcje, technologie i projektowanie. Gliwice: Helion.
+<p>Evans, E., i Szpoton, R. (2015). Domain-driven design: zmień sposób myślenia o projektowaniu systemów informatycznych! Gliwice: Wydawnictwo Helion.
+<p>Field manual 34-130 Intelligence Preparation of the Battlefield. (1994). Headquarters, Department of US Army, Washington.
+<p>Flasiński, M. (1997). Wstęp do analitycznych metod projektowania systemów informatycznych. Warszawa: Wydawnictwa Naukowo-Techniczne.
+<p>Glorio, O., i Trujillo, J. (2008). An MDA Approach for the Development of Spatial Data Warehouses. W I.-Y. Song, J. Eder, i T. M. Nguyen (Red.), Data Warehousing and Knowledge Discovery (T. 5182, s. 23–32). Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-540-85836-2_3
+<p>Głażewski, A. (2006). Modele rzeczywistości geograficznej a modele danych przestrzennych. Polski Przegląd Kartograficzny, T. 38, nr 3, 217–225.
+<p>Głażewski, A. (2009). Analiza spójności modeli pojęciowych polskich urzędowych baz danych referencyjnych. Roczniki Geomatyki, T. 7, z. 5, 55–77.
+<p>Gotlib, D. (2011). Metodyka prezentacji kartograficznych w mobilnych systemach lokalizacyjnych i nawigacyjnych. Oficyna Wydawnicza Politechniki Warszawskiej.
+<p>Grabowski, K., i Dąbrowski, C. (2008). Proces dowodzenia dowódcy pododdziału w aspekcie DD/3.2.5. Zeszyty Naukowe / Wyższa Szkoła Oficerska Wojsk Lądowych im. gen. T. Kościuszki, Nr 2, 98–116.
+<p>Graessle, P., Baumann, H., Baumann, P., i Pętlicki, M. (2006). UML 2.0 w akcji: przewodnik oparty na projektach. Gliwice: Helion.
+<p>Hake, G., Grünreich, D., i Meng, L. (2002). Kartographie: Visualisierung raum-zeitlicher Informationen (8., vollständig neu bearbeitete und erweiterte Auflage). Berlin New York: Walter de Gruyter.
+<p>Hernandez, M. J., Getz, K., Jakóbik, I., Meryk, R., i Żarnowska, K. (2014). Projektowanie baz danych dla każdego: przewodnik krok po kroku. Gliwice: Wydawnictwo Helion.
+<p>Informator o cyfrowych produktach  geograficznych. (2011). Szefostwo Geografii Wojskowej.
+<p>ISO 19011:2011, Guidelines for auditing management systems. (2011). ISO/TC 211  Geographic information/Geomatics.
+<p>ISO 19107:2003, Geographic information -- Spatial schema. (2003). ISO/TC 211  Geographic information/Geomatics.
+<p>ISO 19109:2015, Geographic information -- Rules for application schema. (2015). ISO/TC 211  Geographic information/Geomatics.
+<p>ISO 19110:2016, Geographic information -- Methodology for feature cataloguing. (2016). ISO/TC 211  Geographic information/Geomatics.
+<p>Karabin, M. (2013). Koncepcja modelowego ujęcia katastru 3D w Polsce. Prace Naukowe Politechniki Warszawskiej. Geodezja, z. 51, 4–109.
+<p>Kołodziński, E., i Betliński, G. (2007). Modelowanie systemów informacji przestrzennej z zastosowaniem Uogólnionej Klasy Obiektów. Roczniki Geomatyki, T. 5, z. 2, 39–49.
+<p>Kołodziński, E., i Wyglądała, I. (2007). Analiza efektywności wytwarzania oprogramowania użytkowego GIS w środowisku GEOBA. Roczniki Geomatyki, T. 5, z. 2, 51–63.
+<p>Kowalski, P. (2012). Mapa jako praktyczny interfejs serwisu internetowego. Archiwum Fotogrametrii, Kartografii i Teledetekcji, Vol. 23, 159–168.
+Kraak, M. J., i Ormeling, F. (2013). Cartography: visualization of geospatial data.
+<p>Kresse, W., i Danko, D. M. (Red.). (2012). Springer Handbook of Geographic Information. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-540-72680-7
+<p>Kręcikij, J., Lewandowski, J., Krakowska Akademia im. Andrzeja Frycza Modrzewskiego, Wydział Nauk o Bezpieczeństwie, i Oficyna Wydawnicza AFM. (2015). Organizacja dowodzenia na poziomie strategicznym i operacyjnym: monografia. Kraków: Oficyna Wydawnicza AFM KAAFM.
+<p>Lach, Z., Łaszczuk, A., i Nowak, Z. (2000). Ocena terenu według NATO. AON.
+<p>Longley, P. (Red.). (2005). Geographical information systems: principles, techniques, management, and applications (2nd ed., abridged). Hoboken, N.J: John Wiley i Sons.
+<p>Lutz, M., Trojan, A., i Pętlicki, M. (2011). Python: wprowadzenie. Gliwice: Wydawnictwo Helion.
+<p>Łacheciński, S. (2013). Notacje modelowania w projektowaniu relacyjnych baz danych. Studia Informatica, Vol. 34, nr 4, 5–21.
+<p>Makowski, A. (2005). System informacji topograficznej kraju: teoretyczne i metodyczne opracowanie koncepcyjne. Oficyna Wydawnicza Politechniki Warszawskiej. Pobrano z https://books.google.pl/books?id=FC6WtgAACAAJ
+<p>Martin, R. C., i Meryk, R. (2017). Zwinne wytwarzanie oprogramowania: najlepsze zasady, wzorce i praktyki. Gliwice: Wydawnictwo Helion.
+<p>MC 296/1 NATO Geospatial Policy. (2006). NATO.
+<p>Michalak, J. (2016). Metodyka transformacji środowiskowych danych geoprzestrzennych do schematów INSPIRE (Na przykładzie hydrogeologii). Roczniki Geomatyki, T. 14, z. 1(71), 176–176.
+<p>Modrzejewski, Z. (2013). Rozpoznawcze wsparcie operacji informacyjnych. Zeszyty Naukowe AON, nr 1(90), 138–151.
+<p>Multilingual Dictionary of Technical Terms in Cartography. (1973). International Cartographic Association. Commission II: Definition, Classification and Standardization of Technical Terms in Cartography.
+<p>NATO - ATP 3.2, Land Operations. (2003). NATO.
+<p>NATO -ATP 35 (B), Land Force Tactical Doctrine. (1995).
+<p>NO-02-A029:2000, Wojskowa dokumentacja geograficzna. Zasoby inżynieryjne. (2000). Ministerstwo Obrony Narodowej.
+<p>NO-06-A014:2000, Zakres i prezentacja wojskowych informacji i dokumentów geograficznych. (2000). Ministerstwo Obrony Narodowej.
+<p>NO-06-A015:2012, Teren – Zasady klasyfikacji – Ocena terenu na szczeblu operacyjnym. (2012). Ministerstwo Obrony Narodowej.
+<p>Obe, R., i Hsu, L. (2011). PostGIS in action. Greenwich, Conn. : London: Manning ; Pearson Education [distributor].
+<p>Pachelski, W. (2005). Problemy normalizacji w dziedzinie informacji przestrzennej. Roczniki Geomatyki, T. 3, z. 3, 37–46.
+<p>Pachelski, W. (2009). Modelowanie informacji geograficznej według znormalizowanej metodologii. W E. Bielecka (Red.), Modelowanie pojęciowe w projektowaniu i implementacji systemów geoinformatycznych. Instytut Geodezji i Kartografii.
+<p>Pasławski, J., i Horodyski, B. (2010). Wprowadzeniedo kartografii i topografii. Warszawa; Wrocław: Wydawnictwo Nowa Era ; Redakcja Kartograficzna.
+<p>Peuquet, D. J. (1984). A CONCEPTUAL FRAMEWORK AND COMPARISON OF SPATIAL DATA MODELS. Cartographica: The International Journal for Geographic Information and Geovisualization, 21(4), 66–113. https://doi.org/10.3138/D794-N214-221R-23R5
+<p>Pietruszka, J., i Sobczyński, E. (2013). Wojskowe analogowe opracowania kartograficzne a potrzeby geoinformacyjne bezpieczeństwa i obronności państwa. Polski Przegląd Kartograficzny, T. 45, nr 3, 218–235.
+<p>Pokonieczny, K. (2017). Porównanie map przejezdności terenu opracowanych przy wykorzystaniu różnych baz danych przestrzennych. Unpublished. https://doi.org/10.13140/rg.2.2.34223.79529
+<p>Pokonieczny, K. (2018). Methods of Using Self-organising Maps for Terrain Classification, Using an Example of Developing a Military Passability Map. W I. Ivan, J. Horák, i T. Inspektor (Red.), Dynamics in GIscience (s. 359–371). Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-61297-3_26
+<p>Pokonieczny, K., i Wyszyński, M. (2016). Automation of the terrain assessment classification due to passability for the needs of crisis managment. W Science and Technologies in Geology, Exploration and Mining Conference Proceedings (T. 2, s. 119–126). International Multidisciplinary Scientific GeoConference i EXPO SGEM. 
+<p>Praktyczna encyklopedia drzew i krzewów : Liściaste Drzewa, Krzewy i Krzewinki Ozdobne. (2008). Pobrano 5 marzec 2019, z
+<p>Rogulski, M. (2012). Bazy danych dla studentów: podstawy projektowania i języka SQL. Warszawa: WITKOM (Salma Press).
+<p>Sacha, K. (2014). Inżynieria oprogramowania. Warszawa: Wydawnictwo Naukowe PWN.
+<p>Saliszczew. (1955). O kartograficzeskom metodie issledowanija. Wiestnik Moskowsogo Uniwiersitieta.
+<p>Scheffs, W. (2012). Rozpoznanie na szczeblu taktycznym. Warszawa: Wydawnictwo Akademii Obrony Narodowej.
+<p>SEPT-Supplying Software Engineering Standards Information to the World. (2019).
+<p>Sobczyński, E., Tomaszewski, Z., i Sielecki, J. (2000). Polskie wojskowe mapy w standardach NATO: (przewodnik). Zarząd Geografii Wojskowej Sztabu Generalnego WP.
+<p>STANAG 3377, Air Reconnaissance Intelligence Report Forms. (2002). Headquarters, Department of US Army, Washington.
+<p>Stasiewicz, H., i Łaski, W. (1983). Topografia Wojskowa. Ministerstwo Obrony Narodowej. Sztab Generalny.
+<p>Stępień, G., Maj, K., i Metelica, S. (2007). Wojsko nie bawi się w centymetry. Geodeta : magazyn geoinformacyjny, nr 2, 39–43.
+<p>Sui, D. Z., i Goodchild, M. F. (2001). GIS as media? International Journal of Geographical Information Science, 15(5), 387–390. https://doi.org/10.1080/13658810110038924
+<p>Szt. Gen. WP. (1998). Poradnik prowadzenia studiów operacyjnych teatru zainteresowania strategicznego /TZS/ w Siłach Zbrojnych RP.
+<p>Szymkiewicz, B. (2001). Tablice zasobności i przyrostu drzewostanów ważniejszych gatunków drzew leśnych. Warszawa: Państwowe Wydaw. Rolnicze i Leśne.
+<p>Święcicki, Z. (2012). Instrukcja urządzania lasu. Cz. 2, Cz. 2,. Warszawa: Centrum Informacyjne Lasów Państwowych : Na zlec. Dyrekcji Generalnej Lasów Państwowych.
+<p>Tuzinkiewicz, L., i Wiater, P. (2013). Analysis and comparison of relational and non-relational databases. Studia Informatica, Vol. 34, nr 2B, 323–337.
+<p>Ullman, J. D., Widom, J., i Meryk, R. (2011). Podstawowy kurs systemów baz danych. Gliwice: Helion.
+<p>Vavatech.pl - Technologie – Metodyki – RUP. (2019, styczeń 23). Pobrano 23 styczeń 2019, z http://vavatech.pl/
+<p>Wojtachnik, R. (2017). Metoda zbierania wymagań w projektowaniu systemów informatycznych. Edukacja – Technika – Informatyka, 22(4), 359–367. https://doi.org/10.15584/eti.2017.4.49
+<p>Wrycza, S., Marcinkowski, B., i Wyrzykowski, K. (2005). Język UML 2.0 w modelowaniu systemów informatycznych: diagramy języka UML, modelowanie biznesowe, metodyki projektowe oparte na UML, narzędzia CASE. Gliwice: Wydawnictwo Helion.
+<p>Wrzosek, M. (2006). Zarządzanie informacją rozpoznawczą na poziomie operacyjnym. Zeszyty Naukowe AON, nr 1(62), 95–109.
+Żyszkowska, W. (2000). Semiotyczne aspekty wizualizacji kartograficznej. Wrocław: Wydawn. Uniwersytetu Wrocławskiego.
+
+
+					<div>
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+
+				</section>
+				<section> <!-- sekcja tematyczna 1 - działy tematyczne-->
+				<div id='tekst'>
+					
+					
+				</div>
+
+				</section>
+			</article>
+	
+		
+		</main>
+		
+		<footer>
+		
+		
+		</footer>
+		
+		
+		
+		
+
+</body>
+
+</html>
