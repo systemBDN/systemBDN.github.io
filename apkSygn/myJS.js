@@ -8,7 +8,7 @@ $(document).ready(function () {
         lyrSozo = L.tileLayer.wms("http://mapy.geoportal.gov.pl/wss/service/img/guest/SOZO/MapServer/WMSServer", {layers: "Raster", format: 'image/png', transparent : 'true', version : '1.1.1'}),
         
         // przypisuję do zmiennej mymap obiekt mapa z klasy map
-        mymap = L.map('mymap', {center: [52.1289, 22.227], zoom: 10, zoomControl: false, attributionControl: false});
+        mymap = L.map('mymap', {center: [52.3289, 21.0], zoom: 10, zoomControl: false, attributionControl: false});
 
     mymap.addLayer(lyrOSM);
         
@@ -33,9 +33,24 @@ $(document).ready(function () {
 
     
     //dodaje skale
-    L.control.scale().addTo(mymap);
+    L.control.scale({position:'bottomright', imperial:false, maxWidth:200}).addTo(mymap);
     
-    
+     mymap.locate({setView: true, maxZoom: 10});
+	
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(mymap).bindPopup("Znajdujesz się w promieniu " + radius + " metrów od tego punktu").openPopup();
+
+		L.circle(e.latlng, radius).addTo(mymap);
+
+			function onLocationError(e) {
+				alert(e.message);
+				}
+
+	mymap.on('locationerror', onLocationError);
+	}
+	mymap.on('locationfound', onLocationFound);
     //okodowanie ppm
     mymap.on('contextmenu', function (e) {
        

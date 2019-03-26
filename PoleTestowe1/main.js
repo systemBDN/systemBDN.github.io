@@ -42,8 +42,8 @@ czaplinekGO.addTo(mymap);
     //polecenie dodania ikonki 
     L.control.layers(baseMaps).addTo(mymap);
     
-    //dodaje skale
-    L.control.scale().addTo(mymap);
+//dodaje skale
+    L.control.scale({position:'bottomright', imperial:false, maxWidth:200}).addTo(mymap);
     
     mymap.on('keypress', (e) => {
         if (e.originalEvent.key=="l") {
