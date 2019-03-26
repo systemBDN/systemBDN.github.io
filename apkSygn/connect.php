@@ -5,8 +5,8 @@
 	$db_host="localhost";
 	$db_port="5432";
 	$db_user="postgres";
-	$db_pass="omega";
-	$db_name="Wojsko";
+	$db_pass="*****";
+	$db_name="BDN";
 	
 //tekst do nawiązania polaczenia 
 	$conn_string ="host=".$db_host." port=".$db_port." dbname=".$db_name." user=".$db_user." password=".$db_pass;
@@ -33,7 +33,7 @@
     $zmiennaZ = "xyx";
     //$_POST['nazwa']='c';
     
-    //request insert
+    //polecenie wprowadzania danych insert
     $query = "INSERT INTO public.jednostka(
 	nazwa, b_dl, b_szer)
 	VALUES ('$zmiennaZ','$zmiennaY','$zmiennaX')";
@@ -41,11 +41,11 @@
 
     $sql = "SELECT * FROM public.jednostka";
 
-    if (pg_query($sql)) 
-    {echo " poprawnie wprowadzono dane";
-    } else {
-    echo "cannot insert" ;   
-    };
+    if (pg_query($sql)) {
+		echo " poprawnie wprowadzono dane";
+    	} else {
+    	echo "cannot insert" ;   
+    	};
     pg_close($polaczenie);
 
 ?>

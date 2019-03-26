@@ -101,25 +101,7 @@ figure
 	padding:0px;
 }
 {
-#uzytkownik
-{
-	font-size:10px;
-	text-align:right;
-	color:grey;
-	height:12px;
-	width:100px;
-	background-color:blue;
-}
-#uzytkownik a
-{
-	color:grey;
-	text-decoration:none;
-}
-#uzytkownik a:hover
-{
-	color:#5b6677;
-	
-}
+
 }
 .entries
 {
@@ -181,4 +163,18 @@ a
 }a:hover
 {
 	color:#ddd;
+}
+
+footer{
+	text-align: center;
+}
+
+img {
+	width:100%;
+	height: 200px;
+}
+#pasek{
+	background-color: black;
+	align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+	z-index: 10
 }

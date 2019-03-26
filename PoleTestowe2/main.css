@@ -9,8 +9,9 @@ h1{
   color:#4286f4;
 }
 
-#mapa { height: 400px; 
-//background-color: black}
+#mapa { 
+	height: 70vh; 
+}
 
 p {
     padding:10px;
