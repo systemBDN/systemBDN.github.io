@@ -18,10 +18,10 @@ $(document).ready(function () {
         "Mapa Sozologiczna": lyrSozo        
       };
     
-    //polecenie dodania ikonki 
+    //polecenie dodania ikonki do wyboru danych
     L.control.layers(baseMaps).addTo(mymap);
     
-    //Działa ale zamula w chuj bo geoportal jest mało wydajny
+    //Działa ale zamula bo geoportal jest mało wydajny
 
     //tworze zmienna w postacie mojej ikonki.
     var myicon=L.icon({
@@ -31,11 +31,12 @@ $(document).ready(function () {
         popupAnchor: [0, 0],
     });
 
-    
     //dodaje skale
     L.control.scale({position:'bottomright', imperial:false, maxWidth:200}).addTo(mymap);
     
-     mymap.locate({setView: true, maxZoom: 10});
+	
+	//lokalizacja 
+    mymap.locate({setView: true, maxZoom: 10});
 	
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
@@ -49,32 +50,65 @@ $(document).ready(function () {
 				}
 
 	mymap.on('locationerror', onLocationError);
-	}
+	};
+	
 	mymap.on('locationfound', onLocationFound);
-    //okodowanie ppm
+    
+	
+	//wczytanie sytuacji taktycznej - przemyśleć czy nie zrobić tego na onclick do jakiegoś przycisku
+	$.ajax({
+		type:'POST',
+		url: 'read.php',
+		success: function(response){
+			//response = JSON.parse(response);
+			//console.log(response);
+			var a = response.replace( /"/g ,"").split(' ');// zamieniam znak w całym napisie i konwertuje go do tabeli
+			b = []; // pusty łańcuch do którego nastąpi przepisanie 
+	
+			a.forEach((item)=>{
+				if (!item==''){
+					b.push(parseFloat(item));
+				};
+			});
+				b.forEach((item, i)=>{
+					if (i%2===0){
+						//console.log([b[i], b[i+1]]);
+						L.marker([b[i+1], b[i]], {icon: myicon}).addTo(mymap).bindPopup('wspolrzedne: <br>' + [b[i]+" "+b[i+1]]);
+						//console.log(i, item);
+					};
+				});
+		},
+		error: function(err_info){
+			console.log('Błąd podczas pracy skryptu');
+			console.log(err_info);
+		}
+	});
+		
+	//okodowanie ppm
     mymap.on('contextmenu', function (e) {
-       
+       	//umieść markera we wskazanym miejscu
         L.marker(e.latlng, {icon: myicon}).addTo(mymap).bindPopup('wspolrzedne: <br>' + e.latlng);
         
         // okodowanie zeby ppm automatycznie wpisywal wspolrzedne markera do diva po prawej stornie
         var szer = e.latlng.lat.toFixed(3);
         var dl = e.latlng.lng.toFixed(3);
+		var informacjaOPrzeciwniku = $("#informacjaOPrzeciwniku").val();
         
         //$("#tekst").html('<br> [szer], [dl]');
 		//$("#tekst").html("");
         $("#tekst").append(+ szer + ' N, ' + dl + ' E; ');
-      
-        //wysłanie zmiennej do php za pomocą uproszczonego ajax z biblioteki jquery 
+
+		//wysłanie zmiennej do php za pomocą uproszczonego ajax z biblioteki jquery 
         $.ajax({
-            url: "connect.php",
+            url: "insert.php",
             type: 'POST', //deklaracja sposobu przekazywania zmiennych 
-            //data: { szer: szer, dl: dl }, //opis argumentów do przekazania musi być zgodny z json
+            data: { szer: szer, dl: dl, informacjaOPrzeciwniku: informacjaOPrzeciwniku }, //opis argumentów do przekazania musi być zgodny z json
             success: function(msg){
-            console.log('Server response :\n '+msg); //argument funkcji to odpowiedz serwera i docelowo ma isc do console log żeby odczytać komunikat
-            },
+				console.log('Server response :\n '+msg); //argument funkcji to odpowiedz serwera i docelowo ma isc do console log żeby odczytać komunikat
+			},
             error: function (ajaxContext){
-            console.log(ajaxContext.responseText); //odpowiedz ma isc do console log 
+            	console.log(ajaxContext.responseText); //odpowiedz ma isc do console log 
             }
         });
-    }); // koniec ppm
+    }); 
 });
