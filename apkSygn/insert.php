@@ -9,6 +9,7 @@
 //*******************************************************************************
     //wprowadzanie danych do bazy danych
     $opis = $_POST['informacjaOPrzeciwniku'];
+=======
     //$_POST['nazwa']='c';
     
     //polecenie wprowadzania danych insert

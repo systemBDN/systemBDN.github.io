@@ -102,7 +102,10 @@ $(document).ready(function () {
         $.ajax({
             url: "insert.php",
             type: 'POST', //deklaracja sposobu przekazywania zmiennych 
+<<<<<<< HEAD
             data: { szer: szer, dl: dl, informacjaOPrzeciwniku: informacjaOPrzeciwniku }, //opis argumentów do przekazania musi być zgodny z json
+=======
+>>>>>>> 09941dd82fae550c8a773be63c3ff7af876a3dc9
             success: function(msg){
 				console.log('Server response :\n '+msg); //argument funkcji to odpowiedz serwera i docelowo ma isc do console log żeby odczytać komunikat
 			},
